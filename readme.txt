@@ -1,4 +1,4 @@
-1) crear conexión a base de datos postgresql
+1) crear conexión a base de datos sqlite
 
 2) modelo:
 "id":
