@@ -1,4 +1,5 @@
 from fastapi import status, HTTPException, Depends, APIRouter
+from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 
 from database.database import get_db
@@ -11,6 +12,9 @@ router = APIRouter(
     tags=["Posts"]
 )
 
-@router.get("/")
-async def root():
-    return {"data": "Hola mundo desde get_data"}
+@router.get("/{id}", response_model=posts.Post)
+async def get_post(id: int, db: Session = Depends(get_db)):
+    db_post = db.query(models.Post).filter(models.Post.ID == id).first()
+    if db_post is None:
+        return JSONResponse(status_code=404, content={"error": f"id {id} no válido"})
+    return db_post

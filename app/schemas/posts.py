@@ -9,6 +9,10 @@ class PostBase(BaseModel):
 class PostCreate(PostBase):
     pass
 
-class Post(PostBase):
+class Post(BaseModel):
+    ID: int
+    field_1: str
+    author: str
+    description: str
+    my_numeric_field: int
     model_config = ConfigDict(from_attributes=True)
-    id: int

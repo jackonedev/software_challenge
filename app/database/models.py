@@ -3,7 +3,7 @@ from .database import Base
 
 class Post(Base):
     __tablename__ = "posts"
-    id = Column(Integer, primary_key=True, index=True)
+    ID = Column(Integer, primary_key=True, index=True)
     field_1 = Column(String)
     author = Column(String)
     description = Column(String)

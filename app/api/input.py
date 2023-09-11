@@ -40,4 +40,4 @@ async def create_post(query: str, post: posts.PostCreate, db: Session = Depends(
     db.commit()
     db.refresh(db_post)
 
-    return {"id": db_post.id}
+    return {"id": db_post.ID}
