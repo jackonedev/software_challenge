@@ -1,7 +1,7 @@
 1) crear conexión a base de datos sqlite
 
 2) modelo:
-"id": int
+"id" (pk): int
 "field_1": str
 "author": str
 "description": str
