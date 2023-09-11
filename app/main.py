@@ -22,8 +22,3 @@ app.add_middleware(
 
 app.include_router(input.router)
 app.include_router(get_data.router)
-
-@app.get("/")
-async def root():
-    return {"data": "Hola mundo"}
-
