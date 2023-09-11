@@ -8,6 +8,7 @@ from database.database import get_db
 from database import models
 from schemas import posts
 
+from auth.oauth2 import get_current_user
 
 router = APIRouter(
     prefix="/input",
@@ -22,7 +23,7 @@ class QueryType(str, Enum):
 
 
 @router.post("/{query}")
-async def create_post(query: str, post: posts.PostCreate, db: Session = Depends(get_db)):
+async def create_post(query: str, post: posts.PostCreate, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
     try:
         query_type = QueryType(query)
     except ValueError:

@@ -4,6 +4,7 @@ from database.database import get_db
 from schemas.users import UserOut, UserCreate
 from utils.utils import hash_password
 
+from auth.oauth2 import get_current_user
 
 router = APIRouter(
     prefix="/users",
@@ -32,7 +33,7 @@ def create_user(user: UserCreate, db=Depends(get_db)):
 
 
 @router.get("/{user_id}", response_model=UserOut)
-def read_user(user_id: int, db=Depends(get_db)):
+def read_user(user_id: int, db=Depends(get_db), current_user: models.User = Depends(get_current_user)):
     db_user = db.query(models.User).filter(models.User.id == user_id).first()
 
     if not db_user:
