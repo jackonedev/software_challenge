@@ -40,4 +40,4 @@ async def create_post(query: str, post: posts.PostCreate, db: Session = Depends(
     db.commit()
     db.refresh(db_post)
 
-    return {"id": db_post.ID}
+    return JSONResponse(status_code=201, content={"id": db_post.ID})
