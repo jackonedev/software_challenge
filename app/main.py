@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from database import models
 from database.database import engine
 
+from api import input, get_data
+
+
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine)
 
@@ -16,6 +19,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+app.include_router(input.router)
+app.include_router(get_data.router)
 
 @app.get("/")
 async def root():
