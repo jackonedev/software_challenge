@@ -16,7 +16,7 @@ router = APIRouter(
     )
 
 
-@router.post('/', response_model=users.Token)
+@router.post('/', response_model=users.Token, status_code=status.HTTP_200_OK)
 def login(user_credentials: Annotated[OAuth2PasswordRequestForm, Depends()],
           db: Annotated[Session, Depends(get_db)]
           ):
