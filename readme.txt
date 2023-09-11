@@ -1,11 +1,11 @@
 1) crear conexión a base de datos sqlite
 
 2) modelo:
-"id":
+"id": int
 "field_1": str
 "author": str
 "description": str
-"my_numeric_field": 123
+"my_numeric_field": int
 
 3) Schema de validacion: Todos los campos obligatorios, sin valor por default
 
