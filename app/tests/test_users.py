@@ -1,7 +1,7 @@
 from functools import lru_cache
 import pytest
 from jose import jwt
-from .database import client, session
+# from .database import client, session
 
 from schemas.users import UserOut, Token
 from utils import config
