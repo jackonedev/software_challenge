@@ -20,3 +20,8 @@ def test_get_post(auth_client, test_posts, id):
     assert post.description == test_posts[id-1].description
     assert post.my_numeric_field == test_posts[id-1].my_numeric_field
     assert res.status_code == 200
+
+def test_unauthorized_get_post(client, test_posts):
+
+    res = client.get("/get_data/1/")
+    assert res.status_code == 401
