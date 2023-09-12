@@ -1,6 +1,5 @@
 import pytest
 from schemas import posts
-from database.models import Post
 
 @pytest.mark.parametrize(
     "id", [
