@@ -17,4 +17,9 @@
 - **main.py**: aplicación FastAPI
 - **requirements.txt**: directorio con dependencias del proyecto
 - **.gitignore**: fichero de configuración del repositorio
+- **README.md**: documentación
+- **.dockerignore**: fichero de configuración del contenedor
+- **Dockerfile**: configuración de la imagen del contendeor
+- **compose.yaml**: configuración del proceso de containerización
+
 
