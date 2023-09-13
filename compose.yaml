@@ -1,0 +1,32 @@
+
+
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000 # host:container
+    environment:
+      - SQLITE_DB_PATH=/app/myapp.db
+    volumes:
+      - ./app:/app
+    depends_on:
+      - sqlite
+
+  sqlite:
+    image: sqlite:latest
+    environment:
+      - SQLITE_DB_PATH=/app/myapp.db
+    volumes:
+      - ./app:/app
+    command: sh -c "sqlite3 /app/myapp.db < /app/init.sql"
+
+  pytest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+    command: sh -c "pytest -v"
+
