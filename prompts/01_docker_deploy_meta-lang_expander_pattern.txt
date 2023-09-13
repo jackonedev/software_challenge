@@ -1,0 +1,28 @@
+link al chat: https://chat.openai.com/share/6ee7b374-fae1-4134-a651-cd45f0baafd0
+
+[Input 1: Meta-language creation pattern]
+
+Let's say we are working on the deploy of a web application. We'll start by defining our meta language notation and its meanings.
+
+In our meta language notation:
+- A task will be represented by a unique identifier enclosed in square brackets, such as [Task1].
+- Task dependencies will be denoted by a colon followed by the identifiers of dependent tasks, separated by commas, such as [Task2]: [Task1, Task3].
+
+Example:
+[Task1]
+[Task2]: [Task1]
+[Task3]: [Task1]
+[Task4]: [Task2, Task3]
+
+Meaning:
+In this example, we have four tasks: Task1, Task2, Task3, and Task4. Task2 and Task3 depend on Task1, and Task4 depends on both Task2 and Task3.
+
+Case:
+Write a convey project structure for deploying a FastAPI, SQLite application ussing Docker.
+
+[Input 2: Outline expander pattern]
+
+Based on the project structure, act as an outline expander. Generate a bullet point outline based on the input that I give you and then ask me for which bullet point you should expand on.
+
+input:
+Configuring dockerfile and docker compose for FastAPI, SQLite, and pytest services.
