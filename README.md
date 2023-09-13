@@ -11,7 +11,7 @@ Tech-stack:
 - Pydantic V2
 - SQLite
 - Pytest
-- ~~Docker~~
+- Docker
 
 
 ## Feature 1: Posts
@@ -128,18 +128,18 @@ Tech-stack:
 	- los valores erróneos corroban el status_code == 422
 
 
+## Despliegue Docker
+
+- primero se debe clonar el repositorio
+- añadiendo el fichero de variables de entorno .env (mirar Anexo)
+- luego colocando un terminal ubicada en el directorio ./app
+- generar una imagen y construir el contendor por medio del comando
+`docker compose up --build`
 
 
 ## Documentación
 
-- creando un entorno virtual dentro de la carpeta /app
-	- cmd: py -m venv venv
-- instalando las dependencias del archivo requirements.txt
-	- cmd (windows): .\venv\scritps\activate
-	- cmd (windows): python.exe -m pip install --upgrade pip
-	- cmd (windows): pip install -r requirements.txt
-- desplegando la app en un servidor local de uvicorn:
-	- cmd: uvicorn main:app --reload
+- una vez deplegada la aplicación
 - ingresando en el navegador web colocar en la barra de navegación:
 	- localhost:8000/docs
 - segunda alternativa:
@@ -148,7 +148,6 @@ Tech-stack:
 
 ## Etapas de desarrollo pendiente
 
-- Despliegue en contenedor (Docker)
 - Despliegue en servicio en la nube (pythonanywhere, GCP)
 
 ## Anexo
