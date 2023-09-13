@@ -42,6 +42,10 @@ def verify_access_token(token: str, credentials_exception):
         id = payload.get("user_id")
         if id is None:
             raise credentials_exception
+        
+        if not isinstance(id, str):
+            id = str(id)
+
         token_data = users.TokenData(id=id)#(7:18:00)-> we can validate more than just the user_id
     except JWTError:
         raise credentials_exception
